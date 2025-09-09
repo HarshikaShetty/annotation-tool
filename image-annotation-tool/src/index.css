@@ -1,5 +1,15 @@
 @import "tailwindcss";
 
+@layer components {
+  .btn-base {
+    @apply w-full text-sm text-white font-normal uppercase rounded-md border !p-2;
+  }
+
+  .media-panel {
+    @apply flex items-center w-full bg-gray-200 h-[70%] px-4 rounded-xl;
+  }
+}
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
