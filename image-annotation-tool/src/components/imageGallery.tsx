@@ -16,8 +16,14 @@ const settings = {
     speed: 400,
     slidesToShow: 5,
     slidesToScroll: 1,
-    variableWidth: false,
+    variableWidth: true,
     responsive: [
+        {
+            breakpoint: 1920,
+            settings: {
+                slidesToShow: 4,
+            },
+        },
         {
             breakpoint: 1024,
             settings: {
