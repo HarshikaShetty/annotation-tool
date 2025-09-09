@@ -20,6 +20,7 @@ const ObjectPanel: FC<IObjectPanelProps> = ({
         <div className="w-[20%] h-full bg-white rounded-2xl p-8 flex flex-col gap-2">
             <h3 className="font-medium text-gray-600 text-start">Annotate</h3>
             <hr className="text-gray-200" />
+
             <ul className="flex flex-col flex-1 pt-4 gap-4 items-start">
                 {OBJECT_LIST.map((obj) => (
                     <li
@@ -34,21 +35,14 @@ const ObjectPanel: FC<IObjectPanelProps> = ({
                     </li>
                 ))}
             </ul>
-            <div className="flex flex-col gap-4">
-                <div className="flex gap-4">
-                    <Button
-                        className="btn-base bg-red-600"
-                        onClick={onCancel}
-                    >
-                        Cancel
-                    </Button>
-                    <Button
-                        onClick={onSaveAnnotations}
-                        className="btn-base bg-purple-900"
-                    >
-                        Save
-                    </Button>
-                </div>
+
+            <div className="flex gap-4">
+                <Button className="btn-base bg-red-600" onClick={onCancel}>
+                    Cancel
+                </Button>
+                <Button onClick={onSaveAnnotations} className="btn-base bg-purple-900">
+                    Save
+                </Button>
             </div>
         </div>
     );
