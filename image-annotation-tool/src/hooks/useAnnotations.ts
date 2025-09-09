@@ -24,7 +24,7 @@ export function useAnnotations() {
   const handleSelectImage = useCallback(
     (id: string | null) => {
       setSelectedImageId(id);
-      setShowWebCam(false);
+      setShowWebCam(!id);
     },
     [setShowWebCam]
   );
