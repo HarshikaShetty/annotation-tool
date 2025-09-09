@@ -20,7 +20,25 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-a {
+/* Make the workspace flex and fill */
+.annotate-container > div:first-child {
+  flex: 1 1 auto !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+.annotate-container > div > svg > polyline {
+  stroke-width: 4;
+  stroke: #240768;
+}
+.annotate-container > div > svg > rect {
+  fill: none;
+}
+.annotate-container > div > svg > text {
+  fill: #240768;
+  font-size: 1rem;
+}
+
+*/ a {
   font-weight: 500;
   color: #646cff;
   text-decoration: inherit;
