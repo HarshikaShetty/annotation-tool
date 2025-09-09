@@ -13,33 +13,33 @@ const ImageGallery: FC<ImageGalleryProps> = ({
 }) => {
     const images = useAtomValue(imagesAtom);
 
-    if (images.length === 0) return null;
-
     return (
-        <div className="flex gap-4 overflow-x-auto w-full px-4">
+        <div className="flex gap-4 items-center overflow-x-auto w-full px-4">
             <div
-                className={`w-48 h-64 flex items-center justify-center bg-blue-500 rounded-xl`}
+                className={`w-48 h-48 flex items-center justify-center bg-purple-900 rounded-xl cursor-pointer`}
                 onClick={() => handleSelectImage(null)}
             >
                 <span className="text-white text-lg font-medium">Live Feed</span>
             </div>
-            {images?.map((image: IImage) => (
+            {images?.length > 0 ? images?.map((image: IImage) => (
                 <div
                     key={image.id}
-                    className={`flex-none flex flex-col gap-2 bg-white rounded-md shadow-md p-2 w-48 h-64 cursor-pointer border-4 ${selectedImageId === image.id ? " border-blue-500" : "border-white"
+                    className={`flex-none flex flex-col gap-2 items-center rounded-xl shadow-md p-2 w-48 h-48 cursor-pointer ${selectedImageId === image.id ? " bg-purple-900" : "bg-white"
                         }`}
                     onClick={() => handleSelectImage(image.id)}
                 >
-                    <div className="w-full h-[80%]">
+                    <div className="w-full h-[80%] rounded-xl">
                         <img
                             src={image.src}
                             alt={image.name}
-                            className="w-full h-full object-cover rounded"
+                            className="w-full h-full object-cover rounded-xl"
                         />
                     </div>
-                    <span>{image.name}</span>
+                    <span className={`text-sm w-[80%] font-medium truncate block ${image?.annotations?.[0]?.label && selectedImageId === image.id ? 'text-white' : 'text-gray-900'}`}>
+                        {image?.annotations?.[0]?.label || 'No observation...'}
+                    </span>
                 </div>
-            ))}
+            )) : <span className="text-sm font-medium text-gray-600">No images captured yet</span>}
         </div>
     );
 };
