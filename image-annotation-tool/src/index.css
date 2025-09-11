@@ -49,6 +49,7 @@
 .slick-track {
   display: flex !important;
   align-items: center;
+  margin: 0;
 }
 
 .slick-slide > div > div {
